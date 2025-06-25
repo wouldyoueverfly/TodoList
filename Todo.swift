@@ -9,5 +9,10 @@ import Foundation
 
 struct Todo {
     let title: String
-    let isCompleted: Bool = false
+    let isCompleted: Bool
+    
+    init(title: String, isCompleted: Bool = false) {
+        self.title = title
+        self.isCompleted = isCompleted
+    }
 }

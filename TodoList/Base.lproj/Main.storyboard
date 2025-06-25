@@ -32,6 +32,47 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="e71-hD-aS6"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checked cell" id="7Jb-FQ-ORV" customClass="CheckTableViewCell" customModule="TodoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Jb-FQ-ORV" id="AEa-Nt-qJQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBC-Ey-ldk">
+                                                    <rect key="frame" x="20" y="11" width="330" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdA-13-a9B" customClass="Checkbox" customModule="TodoList" customModuleProvider="target">
+                                                    <rect key="frame" x="350" y="-0.5" width="44" height="44"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="FFv-d7-tEi"/>
+                                                        <constraint firstAttribute="width" constant="44" id="RwJ-HR-2PA"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="checked:" destination="7Jb-FQ-ORV" eventType="valueChanged" id="b1j-OJ-2JR"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aBC-Ey-ldk" firstAttribute="top" secondItem="AEa-Nt-qJQ" secondAttribute="topMargin" id="07k-i3-dsC"/>
+                                                <constraint firstItem="aBC-Ey-ldk" firstAttribute="leading" secondItem="AEa-Nt-qJQ" secondAttribute="leadingMargin" id="57n-Q9-Dye"/>
+                                                <constraint firstItem="aBC-Ey-ldk" firstAttribute="centerY" secondItem="FdA-13-a9B" secondAttribute="centerY" id="Mfa-BR-A0e"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aBC-Ey-ldk" secondAttribute="bottom" constant="0.5" id="NWo-Bu-2Ml"/>
+                                                <constraint firstItem="FdA-13-a9B" firstAttribute="trailing" secondItem="AEa-Nt-qJQ" secondAttribute="trailingMargin" id="QhY-FY-IYc"/>
+                                                <constraint firstItem="FdA-13-a9B" firstAttribute="leading" secondItem="aBC-Ey-ldk" secondAttribute="trailing" id="ikI-uR-YYz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="FdA-13-a9B" id="sLt-0c-k1h"/>
+                                            <outlet property="label" destination="aBC-Ey-ldk" id="1Z5-kI-PZQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="e6J-K0-WwC"/>
                                 </connections>
@@ -59,6 +100,9 @@
                             <constraint firstItem="iT3-gx-jcq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="z35-3K-BPe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="iT3-gx-jcq" id="EcX-yR-0VT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
