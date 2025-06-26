@@ -20,11 +20,17 @@
                                 <rect key="frame" x="347" y="96" width="47" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <segue destination="XkU-Uc-L28" kind="show" destinationCreationSelector="plusButtonSegue:" id="Dbs-cd-7h3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e97-EW-SuY">
                                 <rect key="frame" x="20" y="96" width="51" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="startEditing:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hl3-5b-vEP"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iT3-gx-jcq">
                                 <rect key="frame" x="0.0" y="220" width="414" height="676"/>
@@ -70,11 +76,13 @@
                                         <connections>
                                             <outlet property="checkbox" destination="FdA-13-a9B" id="sLt-0c-k1h"/>
                                             <outlet property="label" destination="aBC-Ey-ldk" id="1Z5-kI-PZQ"/>
+                                            <segue destination="XkU-Uc-L28" kind="show" destinationCreationSelector="todoViewController:" id="E77-7j-ym9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="e6J-K0-WwC"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wYY-ML-8Ii"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Do List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjK-EM-QFy">
@@ -108,8 +116,53 @@
             </objects>
             <point key="canvasLocation" x="139.13043478260872" y="3.3482142857142856"/>
         </scene>
+        <!--Todo View Controller-->
+        <scene sceneID="F51-7i-5aG">
+            <objects>
+                <viewController id="XkU-Uc-L28" customClass="TodoViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MNG-bm-Qnm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sij-Mz-xew">
+                                <rect key="frame" x="20" y="135" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE6-bo-Xj6">
+                                <rect key="frame" x="334" y="49" width="47" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.down.doc" catalog="system"/>
+                                <connections>
+                                    <action selector="save:" destination="XkU-Uc-L28" eventType="touchUpInside" id="n8P-kC-B7b"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="14r-jX-u42"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sij-Mz-xew" firstAttribute="leading" secondItem="14r-jX-u42" secondAttribute="leading" constant="20" id="2Ql-9I-dRB"/>
+                            <constraint firstItem="14r-jX-u42" firstAttribute="trailing" secondItem="DE6-bo-Xj6" secondAttribute="trailing" constant="33" id="BCJ-TU-hck"/>
+                            <constraint firstItem="Sij-Mz-xew" firstAttribute="top" secondItem="DE6-bo-Xj6" secondAttribute="bottom" constant="52" id="GEP-Xn-ajk"/>
+                            <constraint firstItem="14r-jX-u42" firstAttribute="trailing" secondItem="Sij-Mz-xew" secondAttribute="trailing" constant="20" id="Wgh-Te-u07"/>
+                            <constraint firstItem="DE6-bo-Xj6" firstAttribute="top" secondItem="14r-jX-u42" secondAttribute="top" constant="1" id="eqs-YE-pdE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5f4-Lw-hL2"/>
+                    <connections>
+                        <outlet property="textField" destination="Sij-Mz-xew" id="VEX-KT-4ah"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tC-OI-B0Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860.86956521739137" y="23.4375"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dbs-cd-7h3"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.pencil" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

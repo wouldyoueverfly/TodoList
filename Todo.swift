@@ -15,4 +15,8 @@ struct Todo {
         self.title = title
         self.isCompleted = isCompleted
     }
+    
+    func completeToggled() -> Todo {
+        return Todo(title: title, isCompleted: !isCompleted)
+    }
 }

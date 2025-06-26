@@ -23,6 +23,11 @@ class CheckTableViewCell: UITableViewCell {
         delegate?.checkTableViewCell(self, didChangeChecked: checkbox.checked)
     }
     
+    func set(checked: Bool) {
+        checkbox.checked = checked
+        updateChecked()
+    }
+    
     func set(title: String, checked: Bool) {
         label.text = title
         checkbox.checked = checked
